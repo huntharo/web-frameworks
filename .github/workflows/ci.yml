@@ -28,8 +28,6 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
 
   test:
-    if: false
-
     needs: matrix
 
     runs-on: ubuntu-22.04
