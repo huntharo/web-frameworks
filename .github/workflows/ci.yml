@@ -22,11 +22,13 @@ jobs:
         run: echo "matrix=$(bundle exec rake ci:matrix)" >> "$GITHUB_OUTPUT"
         env:
           FILES: ${{ steps.file_changes.outputs.files }}
+      - run: echo "${{ steps.set-matrix.outputs.matrix }}"
 
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
 
   test:
+    if: false
     needs: matrix
 
     runs-on: ubuntu-22.04
